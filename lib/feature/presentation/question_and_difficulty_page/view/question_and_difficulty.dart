@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/feature/data/datasource/quize_implement.dart';
 
 class QuestionAndDiffcultyPage extends StatelessWidget {
   const QuestionAndDiffcultyPage({Key? key}) : super(key: key);
@@ -10,9 +9,7 @@ class QuestionAndDiffcultyPage extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: TextButton(
-            onPressed: () {
-              getQuize('Linux', 'Easy');
-            },
+            onPressed: () {},
             child: const Text("data"),
           ),
         ),
