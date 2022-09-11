@@ -4,13 +4,13 @@ import 'package:quiz_app/feature/data/datasource/quize_implement.dart';
 import 'package:quiz_app/feature/data/repository/questions_implements.dart';
 import 'package:quiz_app/feature/domain/repositories/questions.dart';
 import 'package:quiz_app/feature/domain/usecases/get_questions.dart';
-import 'package:quiz_app/feature/presentation/question_and_difficulty_page/controller/question_and_difficulty_state.dart';
+import 'feature/presentation/quize_page/controller/questions_cubit.dart';
 
 final sl = GetIt.asNewInstance();
 
 Future<void> init() async {
   //Cubit
-  sl.registerFactory(() => QuestionAndDifficultyCubit(getQuestions: sl()));
+  sl.registerFactory(() => QuestionsCubit(getQuestions: sl()));
   //Usecases
   sl.registerLazySingleton(() => GetQuestions(sl()));
   //Repository
