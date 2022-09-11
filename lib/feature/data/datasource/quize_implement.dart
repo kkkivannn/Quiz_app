@@ -4,7 +4,7 @@ import 'package:quiz_app/feature/data/models/question_model.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as https;
 
-class QuizeImplement implements Quize {
+class QuizeImplement implements QuizeDataSource {
   @override
   Future<List<QuestionModel>> getQuize(
       String category, String difficulty) async {
