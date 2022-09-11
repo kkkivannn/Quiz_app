@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:get_it/get_it.dart';
+
+// Project imports:
 import 'package:quiz_app/feature/data/datasource/quize.dart';
 import 'package:quiz_app/feature/data/datasource/quize_implement.dart';
 import 'package:quiz_app/feature/data/repository/questions_implements.dart';

@@ -1,5 +1,5 @@
+// Project imports:
 import 'package:quiz_app/feature/domain/entitis/answers_entiti.dart';
-
 import 'correct_answers_entiti.dart';
 
 class QuestionEntiti {

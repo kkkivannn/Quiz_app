@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:equatable/equatable.dart';
+
+// Project imports:
 import 'package:quiz_app/feature/domain/entitis/question_entiti.dart';
 
 abstract class QuestionsState extends Equatable {
@@ -6,23 +9,23 @@ abstract class QuestionsState extends Equatable {
   List<Object?> get props => [];
 }
 
-class QuestionsStateEmptyState extends QuestionsState {
+class QuestionsEmptyState extends QuestionsState {
   @override
   List<Object?> get props => [];
 }
 
-class QuestionsStateLoadedState extends QuestionsState {
+class QuestionsLoadedState extends QuestionsState {
   final List<QuestionEntiti> questionEntiti;
 
-  QuestionsStateLoadedState(this.questionEntiti);
+  QuestionsLoadedState(this.questionEntiti);
   @override
   List<Object?> get props => [questionEntiti];
 }
 
-class QuestionsStateErrorState extends QuestionsState {
+class QuestionsErrorState extends QuestionsState {
   final String message;
 
-  QuestionsStateErrorState({required this.message});
+  QuestionsErrorState({required this.message});
   @override
   List<Object?> get props => [message];
 }
