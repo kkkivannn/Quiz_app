@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Project imports:
+import 'package:quiz_app/core/utils/utils.dart';
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_cubit.dart';
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_state.dart';
-import 'package:quiz_app/utils.dart';
 import '../../right_answers/view/right_answers_page.dart';
 import '../widgets/question_and_answer.dart';
 
@@ -71,6 +71,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                   itemCount: state.questionEntiti.length,
                   itemBuilder: (context, index) {
                     return QuestionAndAnswers(
+                      pageIndex: index,
                       question: state.questionEntiti[index].question,
                       length: 6,
                       answerA: state.questionEntiti[index].answers.answerA,
@@ -96,7 +97,7 @@ class _QuestionsPageState extends State<QuestionsPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50),
+                padding: const EdgeInsets.only(top: 20, bottom: 50),
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.green),
@@ -117,12 +118,11 @@ class _QuestionsPageState extends State<QuestionsPage> {
                         _numberQuestion++;
                       });
                     } else {
-                      for (var i = 0; i < rightAnswers.length; i++) {
-                        if (rightAnswers[i] == 'true') {
+                      for (var i = 0; i < answerUser.length; i++) {
+                        if (answerUser[i]['answerUser'] == 'true') {
                           _numberRightQuestion++;
                         }
                       }
-                      print(_numberRightQuestion);
                       Navigator.push(
                           context,
                           MaterialPageRoute(

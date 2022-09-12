@@ -2,10 +2,11 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
-import 'package:quiz_app/utils.dart';
+import 'package:quiz_app/core/utils/utils.dart';
 
 class AnswerBlock extends StatefulWidget {
   final int length;
+  final int pageIndex;
   final String answerA;
   final String answerB;
   final String answerC;
@@ -32,7 +33,8 @@ class AnswerBlock extends StatefulWidget {
       required this.answerDcorrect,
       required this.answerEcorrect,
       required this.answerFcorrect,
-      required this.length})
+      required this.length,
+      required this.pageIndex})
       : super(key: key);
 
   @override
@@ -41,7 +43,7 @@ class AnswerBlock extends StatefulWidget {
 
 class _AnswerBlockState extends State<AnswerBlock> {
   List<bool> selectrdAnswer = [false, false, false, false, false, false];
-
+  String boolean = '';
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> answers = [
@@ -91,8 +93,8 @@ class _AnswerBlockState extends State<AnswerBlock> {
                         } else {
                           selectrdAnswer[index] = false;
                         }
-                        rightAnswers.add(answers[index]['answerTrue']);
-                        print(rightAnswers);
+                        boolean = answers[index]['answerTrue'];
+                        answerUser[widget.pageIndex]['answerUser'] = boolean;
                       });
                     },
                     child: Container(

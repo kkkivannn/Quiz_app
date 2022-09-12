@@ -6,6 +6,7 @@ import 'answer_block.dart';
 
 class QuestionAndAnswers extends StatelessWidget {
   final String question;
+  final int pageIndex;
   final int length;
   final String answerA;
   final String answerB;
@@ -36,6 +37,7 @@ class QuestionAndAnswers extends StatelessWidget {
     required this.answerDcorrect,
     required this.answerEcorrect,
     required this.answerFcorrect,
+    required this.pageIndex,
   }) : super(key: key);
 
   @override
@@ -55,6 +57,7 @@ class QuestionAndAnswers extends StatelessWidget {
         ),
         Expanded(
           child: AnswerBlock(
+            pageIndex: pageIndex,
             length: length,
             answerA: answerA,
             answerB: answerB,
