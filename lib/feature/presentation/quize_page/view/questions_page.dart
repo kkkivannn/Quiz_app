@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/core/utils/utils.dart';
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_cubit.dart';
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_state.dart';
-import '../../right_answers/view/right_answers_page.dart';
 import '../widgets/question_and_answer.dart';
 
 class QuestionsPage extends StatefulWidget {
@@ -123,14 +122,11 @@ class _QuestionsPageState extends State<QuestionsPage> {
                           _numberRightQuestion++;
                         }
                       }
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RightAnswersPage(
-                                    allCountAnswers:
-                                        state.questionEntiti.length,
-                                    countRightAnswers: _numberRightQuestion,
-                                  )));
+                      Navigator.of(context)
+                          .pushNamed('/RightAnswersPage', arguments: {
+                        "allCountAnswers": state.questionEntiti.length,
+                        "countRightAnswers": _numberRightQuestion,
+                      });
                     }
                   },
                   child: Text(

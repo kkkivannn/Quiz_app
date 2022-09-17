@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // Project imports:
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_cubit.dart';
 import 'package:quiz_app/feature/presentation/quize_page/controller/questions_state.dart';
-import '../../quize_page/view/questions_page.dart';
 
 class QuestionAndDiffcultyPage extends StatefulWidget {
   const QuestionAndDiffcultyPage({Key? key}) : super(key: key);
@@ -235,19 +234,14 @@ class _QuestionAndDiffcultyPageState extends State<QuestionAndDiffcultyPage> {
                     onPressed:
                         category != 'Category' && difficulty != 'Difficulty'
                             ? () {
-                                setState(() {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => QuestionsPage(
-                                          category: category,
-                                          difficulty: difficulty,
-                                        ),
-                                      ));
-                                  context
-                                      .read<QuestionsCubit>()
-                                      .fetchQuestions(category, difficulty);
+                                Navigator.of(context)
+                                    .pushNamed('/QuestionsPage', arguments: {
+                                  'category': category,
+                                  'difficulty': difficulty,
                                 });
+                                context
+                                    .read<QuestionsCubit>()
+                                    .fetchQuestions(category, difficulty);
                               }
                             : null,
                     child: const Text(
